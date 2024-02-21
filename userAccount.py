@@ -19,8 +19,14 @@ class UserAccount:
         oldpin = input('Enter your old pin')
         if not oldpin == self.Pin:
             return 'Invalid old PIN'
-        
-        new_pin = input('Enter your old pin')
-        confirm_new_pin = input('Enter your old pin')
-        
+        x = 1
+        while x <= 3: 
+            new_pin = input('Enter your old pin')
+            confirm_new_pin = input('Enter your old pin')
+            if not new_pin == confirm_new_pin:
+              print('Pin Mismatch ')
+              x += 1
+            else:
+                x = 4
+                return 'You have successfully reset your PIN' 
             
