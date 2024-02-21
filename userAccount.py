@@ -1,5 +1,5 @@
 class UserAccount: 
-    def __init__(self, name, mobile_number, Dob, Pin, balance ):
+    def __init__(self, name, mobile_number, Dob, Pin, balance=5000.00 ):
         self.name  = name
         self.mobile_number  = mobile_number
         self.Dob  = Dob
@@ -12,10 +12,11 @@ class UserAccount:
                  Mobile Number: {self.mobile_number}
                  Date Of Birth: {self.Dob}
                  PIN: {self.Pin}
-                 Current Balance: {self.balance}
+                 Current Balance: ${self.balance}
                 '''
                 
     def changePin(self):
+        
         oldpin = input('Enter your old pin')
         if not oldpin == self.Pin:
             return 'Invalid old PIN'
@@ -29,4 +30,3 @@ class UserAccount:
             else:
                 x = 4
                 return 'You have successfully reset your PIN' 
-            
