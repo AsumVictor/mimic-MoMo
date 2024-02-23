@@ -16,7 +16,6 @@ class UserAccount:
                 '''
                 
     def changePin(self):
-        
         oldpin = input('Enter your old pin')
         if not oldpin == self.Pin:
             return 'Invalid old PIN'
@@ -30,3 +29,6 @@ class UserAccount:
             else:
                 x = 4
                 return 'You have successfully reset your PIN' 
+
+    def getBalance(self):
+        return self.balance
