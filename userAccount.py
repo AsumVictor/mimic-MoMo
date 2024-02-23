@@ -38,3 +38,8 @@ class UserAccount:
     
     def validateBalance(self, amount):
         return self.balance >= amount
+    
+    def getMessage(self):
+        return f'''
+                You have successsfully
+                 '''
