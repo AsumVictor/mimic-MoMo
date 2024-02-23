@@ -32,3 +32,9 @@ class UserAccount:
 
     def getBalance(self):
         return self.balance
+    
+    def confirmPIN(self, pin):
+        return self.Pin == pin
+    
+    def validateBalance(self, amount):
+        return self.balance >= amount

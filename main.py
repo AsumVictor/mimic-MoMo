@@ -1,5 +1,6 @@
-from userAccount import UserAccount
 import os
+from userAccount import UserAccount
+from transaction import Transaction
 
 
 def main():
@@ -57,14 +58,28 @@ def main():
                         print('Number Mismtach try again!')
 
                 amount = float(input('Enter amount to be send:  '))
-                reference = input('Enter reference:  ')
-                os.system('cls')
+                sufficient = user.validateBalance(amount)
+                if not sufficient:
+                    os.system('cls')
+                    print('Insufficient Balance. Transaction failed!')
+                else:
+                    reference = input('Enter reference:  ')
+                    os.system('cls')
 
-                print(f'''
-                 You are about to send GHC {amount} to the {reciever_number}
-                 . Kindly Confirm your PIN to continue this transaction.
+                    print(f'''
+                     You are about to send GHC {amount} to the number  {reciever_number} REF: {reference}. Kindly Confirm your PIN to continue this   transaction.
+                     ''')
 
-                ''')
+                    pin = input('Enter your PIN: ')
+                    correctPIN = user.confirmPIN(pin)
+                    if not correctPIN:
+                        os.system('cls')
+                        print('Wrong Pin. Transaction failed')
+                    else:
+                        transction = Transaction(
+                            user, reciever_number, amount, reference)
+                        
+                        
 
             else:
                 print('2')
