@@ -44,9 +44,28 @@ def main():
             print('Service under construction! Please Try another option! either 1 or 6')
         else:
             if accept_input == 1:
-                reciever_number = input('Enter Recievers number:  ')
-                amount = int(input('Enter amount to be send'))
-                reference = input('Enter amount to be send')
+                os.system('cls')
+
+                misMatch = True
+                while misMatch:
+                    reciever_number = input('Enter Recievers number:  ')
+                    confirm_number = input('Enter the number again:  ')
+                    print(' ', end='\n')
+                    if reciever_number == confirm_number:
+                        misMatch = False
+                    else:
+                        print('Number Mismtach try again!')
+
+                amount = float(input('Enter amount to be send:  '))
+                reference = input('Enter reference:  ')
+                os.system('cls')
+
+                print(f'''
+                 You are about to send GHC {amount} to the {reciever_number}
+                 . Kindly Confirm your PIN to continue this transaction.
+
+                ''')
+
             else:
                 print('2')
 
